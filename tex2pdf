@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# compile
+platex $1.tex
+pbibtex $1.aux
+platex $1.tex
+platex $1.tex
+dvipdfmx $1.dvi
+
+# celan
+rm -rf $1.aux
+rm -rf $1.bbl
+rm -rf $1.blg
+rm -rf $1.dvi
+rm -rf $1.log
+rm -rf texput.log
